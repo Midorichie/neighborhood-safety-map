@@ -1,0 +1,11 @@
+[project]
+name = "neighborhood-safety-map"
+description = "A Clarity smart contract for mapping neighborhood safety reports"
+version = "0.1.0"
+
+[clarinet]
+network = "sandbox"
+
+[scripts]
+test = "clarinet test"
+start = "clarinet console"
