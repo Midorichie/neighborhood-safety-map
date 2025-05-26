@@ -1,11 +1,56 @@
 [project]
 name = "neighborhood-safety-map"
-description = "A Clarity smart contract for mapping neighborhood safety reports"
-version = "0.1.0"
+description = "A decentralized neighborhood safety reporting and management system"
+version = "2.0.0"
+authors = ["midorichie <hamsohood@gmail.com>"]
+license = "MIT"
+keywords = ["safety", "neighborhood", "community", "mapping", "blockchain"]
 
-[clarinet]
-network = "sandbox"
+[contracts.neighborhood-safety-map]
+path = "contracts/neighborhood-safety-map.clar"
+clarity_version = 2
+epoch = "2.1"
 
-[scripts]
-test = "clarinet test"
-start = "clarinet console"
+[contracts.safety-zones]
+path = "contracts/safety-zones.clar"
+clarity_version = 2
+epoch = "2.1"
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[networks]
+simnet = "http://localhost:20443"
+testnet = "https://stacks-node-api.testnet.stacks.co"
+mainnet = "https://stacks-node-api.mainnet.stacks.co"
+
+# Development accounts for testing
+[[repl.accounts]]
+name = "deployer"
+address = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
+balance = 10000000000000
+
+[[repl.accounts]]
+name = "alice"
+address = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5"
+balance = 10000000000000
+
+[[repl.accounts]]
+name = "bob"
+address = "ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG"
+balance = 10000000000000
+
+[[repl.accounts]]
+name = "charlie"
+address = "ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC"
+balance = 10000000000000
+
+[contracts.neighborhood-safety-map.requirements]
+stacks = ">=2.1"
+
+[contracts.safety-zones.requirements]
+stacks = ">=2.1"
